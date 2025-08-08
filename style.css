@@ -108,7 +108,7 @@ body {
 #hero::before {
     content: '';
     /* IMPORTANT: Make sure this path points to your actual cover photo */
-    background-image: url('https://drive.google.com/file/d/1MDb1Hs4FpDbN5GaKUjb9yg25xHZv_IdO/view?usp=sharing');
+    background-image: url('https://drive.google.com/uc?export=view&id=1MDb1Hs4FpDbN5GaKUjb9yg25xHZv_IdO');
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -233,6 +233,7 @@ footer { background-color: var(--navy-footer); color: var(--white); padding: 60p
     /* A real site would use JavaScript for a hamburger menu */
     .nav-links { display: none; }
 }
+
 
 
 
