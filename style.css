@@ -108,7 +108,7 @@ body {
 #hero::before {
     content: '';
     /* IMPORTANT: Make sure this path points to your actual cover photo */
-    background-image: url('https://raw.githubusercontent.com/durbargazipur/Home/refs/heads/main/Cover.jpg');
+    background-image: url('raw.githubusercontent.com/durbargazipur/Home/refs/heads/main/Cover.jpg');
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -233,4 +233,5 @@ footer { background-color: var(--navy-footer); color: var(--white); padding: 60p
     /* A real site would use JavaScript for a hamburger menu */
     .nav-links { display: none; }
 }
+
 
