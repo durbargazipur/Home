@@ -1,9 +1,7 @@
 /* =================================================================
    GLOBAL STYLES & VARIABLES
-   These settings apply to the whole page unless specified otherwise.
+   These settings apply to the whole page.
 ================================================================= */
-
-/* This sets up some reusable color values, making it easy to change the site's color scheme later. */
 :root {
     --dark-blue: #0d1b2a;
     --navy-footer: #1b263b;
@@ -35,350 +33,189 @@ body {
 .top-bar {
     background: linear-gradient(90deg, #3aafff, #007bff); /* Blue gradient background */
     color: var(--white);
-    padding: 5px 5%; /* Padding on top/bottom and left/right */
+    padding: 5px 5%;
     font-size: 0.8rem;
 }
 
 .location-info span {
-    margin-right: 15px; /* Space between the location texts */
+    margin-right: 15px;
 }
 
-/* Styles for the main navigation bar */
 .main-nav {
-    display: flex; /* This arranges items in a row */
-    justify-content: space-between; /* Pushes logo to the left and links to the right */
-    align-items: center; /* Vertically aligns items in the middle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 5%;
     background-color: var(--white);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow underneath */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.logo img {
-    height: 40px; /* Sets the height of the logo image */
+.logo-img {
+    height: 50px; /* Controls the size of your logo */
+    max-width: 100%;
 }
 
 .nav-links {
-    list-style: none; /* Removes the default bullet points from the list */
-    display: flex; /* Arranges the links in a row */
+    list-style: none;
+    display: flex;
 }
 
 .nav-links li {
-    margin-left: 30px; /* Adds space between each navigation link */
+    margin-left: 30px;
 }
 
 .nav-links a {
-    text-decoration: none; /* Removes the underline from links */
+    text-decoration: none;
     color: var(--font-color);
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.3s; /* Smooth color change on hover */
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--teal); /* Changes link color to teal when hovered */
+    color: var(--teal);
 }
 
 .nav-links a.active {
-    color: var(--teal); /* Styles the currently active page link */
+    color: var(--teal);
 }
 
 /* =================================================================
-   HERO SECTION STYLES
+   HERO SECTION STYLES (FINAL VERSION)
+   This section creates the angled banner with layered text.
 ================================================================= */
 #hero {
-    /* The background image that looks like mountains */
-    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/dark-denim-3.png');
-    background-color: var(--dark-blue);
-    background-size: cover;
-    background-position: center;
-    padding: 100px 5%;
-    position: relative; /* This is crucial for positioning child elements inside it */
+    /* Set up the container for positioning */
+    position: relative; 
     min-height: 600px;
     color: var(--white);
-    /* The torn paper effect at the bottom */
-    border-bottom: 20px solid var(--white); 
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 80px));
+    
+    /* These flex properties will center the main text block perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* THIS CREATES THE ANGLED SHAPE. To make it a rectangle, delete this line. */
+    /*clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), 0 100%);*/
+    
+    /* This prevents anything from spilling outside the angled shape */
+    overflow: hidden;
 }
 
-.hero-content {
-    position: relative; /* Container for absolutely positioned items */
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-}
-
-.hero-text h1 {
-    font-size: 5rem;
-    font-weight: bold;
-    line-height: 1.1;
+/* 
+  This pseudo-element creates the background image and the dark overlay.
+*/
+#hero::before {
+    content: '';
+    /* IMPORTANT: Make sure this path points to your actual cover photo */
+    background-image: url('images/Cover.jpg');
+    background-size: cover;
+    background-position: center;
     position: absolute;
-    top: 50px;
-    left: 20px;
-    transform: rotate(-3deg); /* Tilts the text slightly */
-    z-index: 2; /* Ensures text is on top of the red banner */
-}
-
-.hero-text .highlight-text {
-    color: var(--red); /* Color for the word "DURBAR" */
-}
-
-.red-banner {
-    background-color: var(--red);
-    position: absolute;
-    top: 220px;
-    left: -10%; /* Extends off the left side of the screen */
-    width: 120%;
-    padding: 10px;
-    transform: rotate(-4deg);
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    z-index: 1; /* Sits below the text and images */
-}
-
-.dot-separator {
-    display: inline-block;
-    width: 20px;
-    height: 2px;
-    background-color: var(--white);
-    vertical-align: middle;
-    margin: 0 15px;
-}
-
-.hero-image-1 {
-    position: absolute;
-    top: 90px;
-    left: 45%;
-    width: 300px;
-    border: 5px solid var(--white);
-    border-radius: 20px;
-    transform: rotate(5deg);
-    z-index: 2;
-}
-
-.hero-image-2 {
-    position: absolute;
-    top: 150px;
-    left: 65%;
-    width: 220px;
-    border: 5px solid var(--white);
-    border-radius: 20px;
-    transform: rotate(-5deg);
-    z-index: 2;
-}
-
-.paper-plane {
-    position: absolute;
-    width: 50px;
-    top: 70px;
-    left: 40%;
-    filter: invert(1); /* Makes the black SVG icon white */
-    z-index: 2;
-}
-
-.contact-info {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    text-align: right;
-}
-
-.phone-number {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.join-promo {
-    position: absolute;
-    top: 250px;
-    right: 50px;
-    text-align: center;
-    padding: 10px;
-    border: 2px dashed var(--white);
-    border-radius: 10px;
-    z-index: 2;
-}
-
-.btn-join-hero {
-    position: absolute;
-    bottom: -50px;
-    right: 15%;
-    z-index: 3;
-    background-color: var(--dark-blue);
-    color: var(--white);
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border: 2px solid var(--white);
-}
-
-/* =================================================================
-   GENERAL BUTTON STYLES
-================================================================= */
-.btn {
-    text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 50px; /* Makes the buttons pill-shaped */
-    font-weight: bold;
-    display: inline-block;
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.btn:hover {
-    transform: translateY(-3px); /* Lifts the button slightly on hover */
-}
-
-/* Filled button style */
-.btn-primary {
-    background-color: var(--teal);
-    color: var(--white);
-}
-
-/* Outline button style */
-.btn-secondary {
-    background-color: var(--white);
-    color: var(--teal);
-    border: 2px solid var(--teal);
-}
-
-/* =================================================================
-   INTRODUCTION SECTION STYLES
-================================================================= */
-#intro {
-    text-align: center;
-    padding: 120px 5%; /* Extra top padding to clear the hero section shape */
-}
-
-#intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#intro p {
-    max-width: 600px;
-    margin: 0 auto 30px auto; /* Centers the paragraph and adds space below */
-    line-height: 1.6;
-}
-
-.button-group .btn {
-    margin: 0 10px; /* Adds space between the two buttons */
-}
-
-
-/* =================================================================
-   VIDEO SECTION STYLES
-================================================================= */
-#about-video {
-    text-align: center;
-    padding: 50px 5%;
-}
-
-.section-title-button {
-    background-color: var(--teal);
-    color: var(--white);
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-bottom: 30px;
-}
-
-.video-container {
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Adds a shadow to lift the video off the page */
-    border-radius: 10px;
-    overflow: hidden; /* Ensures the iframe corners are rounded */
-    aspect-ratio: 16 / 9; /* Makes the video container responsive */
-}
-
-.video-container iframe {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    /* This is the dark overlay. Change 0.5 to 0.6 to make it darker if needed. */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+    /* This places the background behind the content */
+    z-index: -1;
+}
+
+/* 
+  This container now acts as the positioning frame for the text and banner.
+  'position: relative' is crucial for the absolute positioning of its children.
+*/
+.hero-content {
+    position: relative;
+    text-align: center;
+}
+
+/* 
+  This styles the main headline text ("We are the DURBAR").
+  It acts as the bottom layer of our text design.
+*/
+.hero-content h1 {
+    font-size: 7rem;
+    font-weight: bold;
+    color: var(--white);
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    /* Set its stacking order to be at the bottom */
+    z-index: 1;
+}
+
+/* 
+  This styles the red banner.
+  We use absolute positioning to place it exactly where we want.
+*/
+.red-banner {
+    background-color: var(--red);
+    color: var(--white);
+    padding: 10px 30px;
+    font-weight: bold;
+    font-size: 1.0rem;
+    
+    /* This is the magic for positioning! */
+    position: absolute; /* Lifts the banner out of the normal document flow */
+    top: 50%;           /* Moves the top edge of the banner to the vertical center */
+    left: 50%;          /* Moves the left edge of the banner to the horizontal center */
+    
+    /* This trick re-centers the banner perfectly and applies a tilt. */
+    transform: translate(-50%, -50%) rotate(0deg);
+
+    /* We give the banner a higher z-index so it sits ON TOP of the headline text */
+    z-index: 2;
+    
+    /* Make the banner wide enough to cover the text */
+    width: 90%;
 }
 
 
 /* =================================================================
-   SPONSORS SECTION STYLES
+   BUTTON & OTHER SECTION STYLES
+   (No changes needed in the sections below)
 ================================================================= */
-#sponsors {
-    background-color: var(--light-gray);
-    text-align: center;
-    padding: 50px 5%;
-}
 
-#sponsors h2 {
-    font-size: 2rem;
-}
+/* General Button Styles */
+.btn { text-decoration: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; display: inline-block; transition: transform 0.3s, background-color 0.3s; }
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background-color: var(--teal); color: var(--white); }
+.btn-secondary { background-color: var(--white); color: var(--teal); border: 2px solid var(--teal); }
+
+/* Introduction Section Styles */
+#intro { text-align: center; padding: 120px 5%; }
+#intro h2 { font-size: 2.5rem; margin-bottom: 20px; }
+#intro p { max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; }
+.button-group .btn { margin: 0 10px; }
+
+/* Video Section Styles */
+#about-video { text-align: center; padding: 50px 5%; }
+.section-title-button { background-color: var(--teal); color: var(--white); padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-bottom: 30px; }
+.video-container { max-width: 800px; margin: 0 auto; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; }
+.video-container iframe { width: 100%; height: 100%; border: none; }
+
+/* Sponsors Section Styles */
+#sponsors { background-color: var(--light-gray); text-align: center; padding: 50px 5%; }
+#sponsors h2 { font-size: 2rem; }
 
 /* =================================================================
    FOOTER STYLES
 ================================================================= */
-footer {
-    background-color: var(--navy-footer);
-    color: var(--white);
-    padding: 60px 5%;
-}
-
-.footer-container {
-    display: flex; /* Arranges the columns in a row */
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px; /* Space between columns */
-}
-
-.footer-column {
-    flex: 1; /* Gives each column a flexible width */
-}
-
-.footer-column h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.footer-column p {
-    line-height: 1.7;
-    color: #ccc; /* Slightly lighter text color for the paragraph */
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 10px;
-}
-
-.footer-column ul a {
-    text-decoration: none;
-    color: #ccc;
-    transition: color 0.3s;
-}
-
-.footer-column ul a:hover {
-    color: var(--white); /* Brightens link color on hover */
-}
-
-.about-club {
-    flex: 2; /* Makes the first column wider than the others */
-}
-
-.social-icons {
-    margin-top: 20px;
-}
-
-.social-icons a {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin-right: 15px;
-    transition: transform 0.3s;
-}
-
-.social-icons a:hover {
-    transform: scale(1.2); /* Makes icons slightly larger on hover */
-}
+footer { background-color: var(--navy-footer); color: var(--white); padding: 60px 5%; }
+.footer-container { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; gap: 40px; }
+.footer-column { flex: 1; }
+.footer-column h3 { font-size: 1.5rem; margin-bottom: 20px; }
+.footer-column p { line-height: 1.7; color: #ccc; }
+.footer-column ul { list-style: none; }
+.footer-column ul li { margin-bottom: 10px; }
+.footer-column ul a { text-decoration: none; color: #ccc; transition: color 0.3s; }
+.footer-column ul a:hover { color: var(--white); }
+.about-club { flex: 2; }
+.social-icons { margin-top: 20px; }
+.social-icons a { color: var(--white); font-size: 1.5rem; margin-right: 15px; transition: transform 0.3s; }
+.social-icons a:hover { transform: scale(1.2); }
 
 /* =================================================================
    RESPONSIVE STYLES FOR MOBILE DEVICES
@@ -387,39 +224,12 @@ footer {
     /* This whole block only applies to screens 768px wide or smaller */
 
     /* Make text smaller on mobile */
-    .hero-text h1 {
-        font-size: 3rem;
-    }
-    .red-banner {
-        font-size: 1rem;
-    }
+    .hero-content h1 { font-size: 3.5rem; }
+    .red-banner { font-size: 1rem; padding: 10px 20px; width: 100%; }
     
-    /* Stack the hero images instead of having them side-by-side */
-    .hero-image-1, .hero-image-2 {
-        position: static; /* Remove absolute positioning */
-        transform: none; /* Remove rotation */
-        width: 80%;
-        margin: 20px auto;
-        display: block;
-    }
-
-    /* Hide some of the decorative elements on mobile to simplify the view */
-    .paper-plane, .contact-info, .join-promo {
-        display: none;
-    }
-
-    #hero {
-        padding-top: 50px;
-        clip-path: none; /* Remove the angled bottom on mobile */
-    }
-
     /* Stack footer columns on top of each other */
-    .footer-container {
-        flex-direction: column; 
-    }
+    .footer-container { flex-direction: column; }
 
-    /* Adjust navigation for mobile (a real site would use JavaScript for a hamburger menu) */
-    .nav-links {
-        display: none; /* A simple approach: hide links. A better site would use a hamburger menu. */
-    }
+    /* A real site would use JavaScript for a hamburger menu */
+    .nav-links { display: none; }
 }
