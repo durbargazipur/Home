@@ -23,24 +23,21 @@
          This includes the very top bar and the main navigation menu.
     ================================================================== -->
     <header>
-        <!-- The light blue bar at the very top of the page. -->
         <div class="top-bar">
             <div class="location-info">
                 <span>Durbar</span>
                 <span>Joydebpur, Gazipur</span>
             </div>
         </div>
-
-        <!-- The main navigation bar with the logo and menu links. -->
         <nav class="main-nav">
             <a href="#" class="logo">
-                <!-- Replace 'https://placehold.co/100x40' with the path to your actual logo image -->
-                <img src="https://raw.githubusercontent.com/durbargazipur/Home/refs/heads/main/durbar_logo.png" alt="Durbar Logo">
+                <!-- IMPORTANT: Replace this placeholder with the raw link to your logo on GitHub -->
+                <img class="logo-img" src="/images/durbar_logo.png" alt="Durbar Cycling Club Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="https://forms.gle/dYzFNPLiGbyRQFnq8">Join Us</a></li>
+                <li><a href="#">Join Us</a></li>
             </ul>
         </nav>
     </header>
@@ -52,31 +49,31 @@
     <main>
         
         <!-- =================================================================
-             HERO SECTION
-             This is the large, visually engaging banner at the top.
+             HERO SECTION (FINAL LAYOUT)
+             This is the large banner with the angled bottom and layered text.
         ================================================================== -->
         <section id="hero">
-            <!-- This is a container that helps position all the complex elements inside. -->
+            <!-- This container holds all the content layered on top of the cover photo. -->
             <div class="hero-content">
                 
-                <!-- Main heading text: "We are the DURBAR" -->
-                <div class="hero-text">
-                    <h1>We are the <span class="highlight-text">DURBAR</span></h1>
-                </div>
-
-                <!-- The red banner with the tagline -->
-                <div class="red-banner">
-                    <p>CYCLING <span class="dot-separator"></span> EXERCISE<span class="dot-separator"></span> Travelling <span class="dot-separator"></span> FUN & CHATING</p>
-                </div>
+                <!-- 
+                  This is the main headline text. It will act as the background layer
+                  for the red banner.
+                -->
+                <h1>
+                    We are
+                    <br>
+                    the DURBAR
+                </h1>
                 
-                <!-- The "Join the Durbar" box on the right -->
-                <div class="join-promo">
-                    <h3>Join the Durbar</h3>
-                    <p>to keep your happy mind and health</p>
+                <!-- 
+                  This is the red banner. It is placed here in the HTML, but we will
+                  use CSS to move it directly on top of the headline.
+                -->
+                <div class="red-banner">
+                    <p>CYCLING — EXERCISE  — SWIMMING — TRAVELLING — FUN & CHATING</p>
                 </div>
 
-                 <!-- The main "JOIN US" button for this section -->
-                <a href="https://forms.gle/dYzFNPLiGbyRQFnq8" class="btn btn-join-hero">JOIN US</a>
             </div>
         </section>
 
@@ -91,8 +88,8 @@
                 We want everyone to have a fun, good, and safe experience when riding with us.
             </p>
             <div class="button-group">
-                <a href="https://forms.gle/dYzFNPLiGbyRQFnq8" class="btn btn-primary">Join Now</a>
-                <a href="https://docs.google.com/document/d/1f4hTGAnoi1nUoS0HwM3HtJOt-tj-823WslAe_MQPyYg/edit?usp=sharing" class="btn btn-secondary">Before You Join a Ride</a>
+                <a href="#" class="btn btn-primary">Join Now</a>
+                <a href="#" class="btn btn-secondary">Before You Join a Ride</a>
             </div>
         </section>
 
@@ -103,7 +100,7 @@
         <section id="about-video">
             <div class="section-title-button">About Us</div>
             <div class="video-container">
-                <!-- This is an embed code from YouTube. Replace the 'src' with your video's embed link. -->
+                <!-- Replace the 'src' with your video's embed link. -->
                 <iframe 
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                     title="YouTube video player" 
@@ -141,7 +138,7 @@
                 </p>
                 <div class="social-icons">
                     <!-- These icons are from Font Awesome. 'fab' stands for 'Font Awesome Brands'. -->
-                    <a href="https://web.facebook.com/durbargaipur" aria-label="Facebook Page"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Facebook Page"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Strava Profile"><i class="fab fa-strava"></i></a>
                 </div>
             </div>
@@ -151,7 +148,7 @@
                 <h3>About</h3>
                 <ul>
                     <li><a href="#">About Us</a></li>
-                    <li><a href="https://docs.google.com/document/d/1f4hTGAnoi1nUoS0HwM3HtJOt-tj-823WslAe_MQPyYg/edit?usp=sharing">Before you join a ride</a></li>
+                    <li><a href="#">Before you join a ride</a></li>
                     <li><a href="#">Our Values</a></li>
                     <li><a href="#">Leadership Team</a></li>
                 </ul>
@@ -161,7 +158,7 @@
             <div class="footer-column">
                 <h3>Resources</h3>
                 <ul>
-                    <li><a href="https://forms.gle/dYzFNPLiGbyRQFnq8">Join</a></li>
+                    <li><a href="#">Join</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -170,5 +167,3 @@
 
 </body>
 </html>
-
-
